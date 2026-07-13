@@ -1,5 +1,5 @@
 name: "AmneziaWG Client"
-version: "1.0.0"
+version: "1.0.1"
 slug: "amneziawg-client"
 description: "AmneziaWG client for Telegram routing"
 arch:
@@ -17,3 +17,5 @@ devices:
 cap_add:
   - NET_ADMIN
   - SYS_MODULE
+map:
+  - config:rw
