@@ -1,17 +1,25 @@
 #!/bin/bash
 set -e
 
-CONFIG="/etc/amneziawg/awg0.conf"
+# Конфиг из /config/amneziawg/awg0.conf (маппинг через map: config:rw)
+CONFIG="/config/amneziawg/awg0.conf"
 
 echo "=== AmneziaWG Client ==="
 
 if [ ! -f "$CONFIG" ]; then
     echo "ERROR: Config not found at $CONFIG"
+    echo "Please create /config/amneziawg/awg0.conf"
+    echo ""
+    echo "Example config:"
+    echo "[Interface]"
+    echo "PrivateKey = YOUR_KEY"
+    echo "Address = 10.8.1.8/32"
+    echo "..."
     sleep 99999
     exit 1
 fi
 
-echo "Config found"
+echo "Config found: $CONFIG"
 
 if [ ! -e /dev/net/tun ]; then
     mkdir -p /dev/net
