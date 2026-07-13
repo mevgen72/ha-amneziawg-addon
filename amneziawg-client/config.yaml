@@ -1,0 +1,19 @@
+name: "AmneziaWG Client"
+version: "1.0.0"
+slug: "amneziawg-client"
+description: "AmneziaWG client for Telegram routing"
+arch:
+  - amd64
+  - aarch64
+url: "https://github.com/amnezia-vpn"
+init: false
+startup: system
+boot: auto
+host_network: true
+privileged:
+  - NET_ADMIN
+devices:
+  - /dev/net/tun
+cap_add:
+  - NET_ADMIN
+  - SYS_MODULE
